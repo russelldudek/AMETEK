@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Russell Dudek — interview thesis for AMETEK P&AI Division Vice President, Information Technology." />
+  <title>Russell Dudek | AMETEK P&AI IT Vision</title>
+  <style>
+    :root{
+      --red:#EC2227;
+      --ink:#101214;
+      --teal:#174F60;
+      --teal-2:#23677A;
+      --paper:#FFFFFF;
+      --mist:#F3F5F6;
+      --line:#D7DDE0;
+      --muted:#667178;
+      --soft:#E9EEF0;
+      --shadow:0 18px 55px rgba(16,18,20,.10);
+      --radius:18px;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:var(--paper);
+      font-family:Arial, Helvetica, sans-serif;
+      line-height:1.55;
+      letter-spacing:.002em;
+    }
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:-2;
+      background:
+        repeating-linear-gradient(135deg,
+          transparent 0 34px,
+          rgba(23,79,96,.025) 34px 36px,
+          transparent 36px 68px);
+    }
+    a{color:inherit}
+    .wrap{width:min(var(--max), calc(100% - 40px)); margin-inline:auto}
+    .kicker{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.16em; text-transform:uppercase;
+      font-size:.76rem; color:var(--teal);
+    }
+    .kicker::before{
+      content:""; width:42px; height:13px; background:var(--red);
+      clip-path:polygon(0 0,100% 0,80% 100%,0 100%);
+      flex:0 0 auto;
+    }
+    .section{padding:88px 0}
+    .section-head{max-width:850px; margin-bottom:34px}
+    h1,h2,h3,p{margin-top:0}
+    h1{
+      font-size:clamp(3.1rem, 7vw, 6.7rem);
+      line-height:.93; letter-spacing:-.055em;
+      max-width:1050px; margin-bottom:26px;
+    }
+    h2{
+      font-size:clamp(2.1rem, 4.7vw, 4.3rem);
+      line-height:1.02; letter-spacing:-.045em; margin-bottom:18px;
+    }
+    h3{
+      font-size:1.15rem; line-height:1.2; letter-spacing:-.02em;
+      margin-bottom:10px;
+    }
+    .lede{
+      font-size:clamp(1.13rem, 2vw, 1.5rem);
+      max-width:850px; color:#343A3E; line-height:1.5;
+    }
+    .small{font-size:.9rem;color:var(--muted)}
+    .muted{color:var(--muted)}
+    .red{color:var(--red)}
+    .teal{color:var(--teal)}
+    .strong{font-weight:800}
+    .label{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:.72rem; font-weight:800; text-transform:uppercase;
+      letter-spacing:.12em; color:var(--teal);
+    }
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:30;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(16,18,20,.08);
+    }
+    .nav{
+      min-height:72px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px 22px;
+    }
+    .brand-lockup{
+      display:flex; align-items:center; gap:10px; text-decoration:none; white-space:nowrap;
+    }
+    .brand-logo{
+      width:138px;
+      height:auto;
+      display:block;
+      filter:drop-shadow(0 1px 0 rgba(16,18,20,.08));
+    }
+    .brand-word{
+      font-weight:900; letter-spacing:.05em; font-size:1.12rem;
+    }
+    .brand-sub{
+      margin-left:7px; padding-left:10px; border-left:1px solid var(--line);
+      font-size:.73rem; color:var(--muted); font-weight:700; letter-spacing:.08em;
+    }
+    .navlinks{display:flex; align-items:center; gap:18px}
+    .navlinks a{
+      text-decoration:none; font-weight:700; font-size:.82rem; color:#3B4145;
+    }
+    .navlinks a:hover{color:var(--red)}
+    .print-btn{
+      border:1px solid var(--ink); background:var(--ink); color:white;
+      border-radius:999px; padding:10px 15px; cursor:pointer; font-weight:800;
+    }
+
+    /* Hero */
+    .hero{
+      position:relative; overflow:hidden; padding:92px 0 72px;
+      border-bottom:1px solid var(--line);
+    }
+    .hero::after{
+      content:""; position:absolute; right:-160px; top:-120px;
+      width:620px; height:620px; border-radius:50%;
+      border:110px solid rgba(23,79,96,.055);
+      z-index:-1;
+    }
+    .hero .kicker{margin-bottom:26px}
+    .hero h1 .accent{
+      display:inline-block; position:relative;
+    }
+    .hero h1 .accent::after{
+      content:""; position:absolute; left:2%; right:0; bottom:-10px; height:12px;
+      background:var(--red); clip-path:polygon(0 35%,100% 0,98% 72%,1% 100%);
+      opacity:.96;
+    }
+    .hero-meta{
+      margin-top:34px; display:flex; gap:12px; flex-wrap:wrap;
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 13px; border:1px solid var(--line); background:white;
+      font-size:.84rem; font-weight:800;
+    }
+    .chip::before{content:""; width:7px;height:7px;background:var(--red);border-radius:50%}
+    .voss-hero{
+      margin-top:50px;
+      max-width:980px;
+      display:grid; grid-template-columns:60px 1fr 44px; gap:18px;
+      padding:24px 26px;
+      background:var(--teal); color:white;
+      box-shadow:var(--shadow);
+    }
+    .quote-mark{font-size:4.8rem; line-height:.78; color:var(--red); font-family:Georgia, serif}
+    .quote-mark.close{align-self:end;line-height:.45}
+    .voss-hero p{margin:0; font-size:clamp(1.2rem, 2vw, 1.65rem); font-weight:700; line-height:1.4}
+
+    /* Research signals */
+    .signals{background:var(--mist)}
+    .signal-grid{
+      display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line);
+      border:1px solid var(--line);
+    }
+    .signal{
+      background:white; padding:26px 24px; min-height:245px;
+      position:relative; overflow:hidden;
+    }
+    .signal::after{
+      content:""; position:absolute; width:90px;height:18px;right:-20px;top:18px;
+      background:rgba(236,34,39,.10); transform:skewX(-28deg);
+    }
+    .signal .num{
+      font-weight:900; font-size:2.4rem; letter-spacing:-.05em; color:var(--teal); line-height:1;
+      margin-bottom:15px;
+    }
+    .signal p{font-size:.94rem;color:#4B5358}
+    .signal .empathy{
+      display:block; margin-top:16px; padding-top:14px; border-top:1px solid var(--soft);
+      font-weight:800; color:var(--ink);
+    }
+
+    /* Thesis */
+    .thesis-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:start}
+    .growth-model{
+      display:grid; grid-template-columns:repeat(2,1fr); border:1px solid var(--line);
+    }
+    .growth-cell{
+      padding:24px; min-height:205px; border-right:1px solid var(--line); border-bottom:1px solid var(--line);
+      transition:.25s ease; background:white;
+    }
+    .growth-cell:nth-child(2n){border-right:0}
+    .growth-cell:nth-child(n+3){border-bottom:0}
+    .growth-cell:hover{transform:translateY(-4px); box-shadow:var(--shadow); z-index:2}
+    .growth-cell b{display:block;color:var(--teal);margin-bottom:7px}
+    .growth-cell .arrow{color:var(--red);font-weight:900}
+    .core-edge{
+      background:var(--teal); color:white; padding:34px; min-height:100%;
+    }
+    .core-edge h3{font-size:1.5rem}
+    .architecture{margin-top:24px; display:grid; gap:12px}
+    .arch-row{
+      padding:15px 16px; border:1px solid rgba(255,255,255,.22);
+      display:grid; grid-template-columns:125px 1fr; gap:14px; align-items:start;
+      background:rgba(255,255,255,.035);
+    }
+    .arch-row strong{color:white}
+    .arch-row span{color:#DCE8EB;font-size:.9rem}
+    .arch-row.acq{border-left:5px solid var(--red)}
+
+    /* Candidate proof */
+    .proof{background:#111619;color:white}
+    .proof .kicker,.proof .section-head .muted{color:#AFC5CC}
+    .proof-grid{
+      display:grid; grid-template-columns:repeat(4,1fr); gap:14px;
+    }
+    .proof-card{
+      padding:26px 22px; border:1px solid rgba(255,255,255,.14);
+      min-height:290px; background:rgba(255,255,255,.025);
+    }
+    .proof-card .metric{
+      font-size:2.25rem; font-weight:900; letter-spacing:-.05em; color:var(--red); line-height:1;
+      margin-bottom:16px;
+    }
+    .proof-card h3{color:white}
+    .proof-card p{color:#BEC8CC;font-size:.93rem}
+    .proof-strip{
+      margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.12);
+      color:white!important;font-weight:800;
+    }
+
+    /* Strategic priorities tabs */
+    .priority-shell{
+      border:1px solid var(--line); background:white; box-shadow:var(--shadow);
+      display:grid; grid-template-columns:300px 1fr; min-height:480px;
+    }
+    .priority-tabs{
+      background:var(--mist); border-right:1px solid var(--line); padding:10px;
+    }
+    .priority-tab{
+      width:100%;text-align:left;border:0;background:transparent;cursor:pointer;
+      padding:19px 16px;border-bottom:1px solid var(--line);font-weight:900;color:#50575B;
+    }
+    .priority-tab.active{
+      background:var(--teal); color:white; border-bottom-color:transparent;
+    }
+    .priority-panel{padding:38px 42px}
+    .priority-panel article{display:none}
+    .priority-panel article.active{display:block; animation:fade .28s ease}
+    @keyframes fade{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+    .priority-panel .big-question{
+      font-size:clamp(1.6rem,3vw,2.7rem);font-weight:900;line-height:1.15;letter-spacing:-.035em;
+      color:var(--teal); max-width:760px; margin-bottom:24px;
+    }
+    .three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+    .mini{
+      border-top:4px solid var(--red);padding:15px 0 0;
+    }
+    .mini b{display:block;margin-bottom:5px}
+    .mini p{font-size:.9rem;color:var(--muted)}
+
+    /* Competition */
+    .competition{background:var(--mist)}
+    .market-frame{
+      display:grid; grid-template-columns:.9fr 1.1fr; gap:26px; align-items:stretch;
+    }
+    .market-thesis{
+      padding:34px; background:var(--teal); color:white; display:flex; flex-direction:column; justify-content:space-between;
+    }
+    .market-thesis .formula{
+      font-size:clamp(1.6rem,3vw,2.8rem);font-weight:900;line-height:1.15;letter-spacing:-.04em;
+    }
+    .market-thesis .formula span{color:var(--red)}
+    .moves{border:1px solid var(--line);background:white}
+    .move{
+      display:grid;grid-template-columns:140px 1fr;gap:18px;padding:22px 24px;border-bottom:1px solid var(--line);
+    }
+    .move:last-child{border-bottom:0}
+    .move b{color:var(--teal)}
+    .move p{margin:0;font-size:.93rem;color:#4D5559}
+
+    /* Timeline */
+    .timeline{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line)}
+    .phase{padding:28px 26px; min-height:320px; border-right:1px solid var(--line);background:white}
+    .phase:last-child{border-right:0}
+    .phase .days{color:var(--red);font-size:.8rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+    .phase h3{font-size:1.5rem;margin:12px 0 14px}
+    .phase p{font-size:.93rem;color:#4E565A}
+    .phase ul{padding-left:18px;margin:18px 0 0}
+    .phase li{margin-bottom:8px;color:#343B3F;font-size:.9rem}
+
+    /* Hard question */
+    .hard-question{
+      padding:0;
+      background:linear-gradient(115deg,var(--teal) 0 62%, #103D49 62% 100%);
+      color:white;
+    }
+    .hq-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;padding:72px 0}
+    .hq-quote{
+      font-size:clamp(2rem,4vw,4.4rem); line-height:1.08; letter-spacing:-.045em; font-weight:900;
+    }
+    .hq-response{
+      border-left:5px solid var(--red);padding-left:24px;align-self:center
+    }
+    .hq-response p{font-size:1.08rem;color:#D9E5E8}
+    .hq-response .close{font-weight:900;color:white;font-size:1.2rem}
+
+    /* Questions / CTA */
+    .questions-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .question-card{
+      border:1px solid var(--line);padding:25px;background:white;min-height:165px;
+      position:relative;
+    }
+    .question-card::before{
+      content:"?"; position:absolute; right:18px; top:8px; font-size:3.7rem;font-weight:900;color:rgba(236,34,39,.12);
+    }
+    .question-card p{font-size:1.15rem;font-weight:800;line-height:1.4;max-width:90%}
+    .cta{
+      margin-top:38px; padding:34px; background:var(--ink); color:white;
+      display:flex;align-items:center;justify-content:space-between;gap:20px;
+    }
+    .cta h3{font-size:1.7rem;margin-bottom:6px}
+    .cta p{margin:0;color:#BCC6CA}
+    .cta-actions{display:grid;gap:12px;justify-items:start}
+    .cta-primary-actions,.cta-download-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;
+      border:1px solid white;text-decoration:none;font-weight:900;white-space:nowrap;
+      transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease, color .18s ease;
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.22)}
+    .btn:focus-visible{outline:3px solid rgba(255,255,255,.65);outline-offset:3px}
+    .btn.primary{background:var(--red);border-color:var(--red)}
+    .btn.primary:hover{background:var(--ink);border-color:var(--red);color:var(--red)}
+    .btn.secondary{background:transparent;color:white}
+    .btn.secondary:hover{background:white;color:var(--ink);border-color:white}
+    .btn.download{background:white;color:var(--ink);border-color:white}
+    .btn.download:hover{background:var(--ink);border-color:white;color:white}
+
+    /* Sources */
+    footer{padding:40px 0 55px;border-top:1px solid var(--line);background:#FAFBFB}
+    details{border:1px solid var(--line);background:white}
+    summary{cursor:pointer;padding:16px 18px;font-weight:900;color:var(--teal)}
+    .sources{padding:0 18px 18px}
+    .sources ol{padding-left:20px;margin:0}
+    .sources li{margin:9px 0;font-size:.85rem;color:#535C61}
+    .sources a{color:var(--teal);text-decoration-thickness:1px;text-underline-offset:3px}
+    .disclaimer{margin-top:18px;font-size:.8rem;color:#7A8387}
+
+    /* Reveal */
+    .reveal{opacity:0;transform:translateY(18px);transition:.55s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media (max-width:1000px){
+      .signal-grid,.proof-grid{grid-template-columns:repeat(2,1fr)}
+      .thesis-grid,.market-frame,.hq-grid{grid-template-columns:1fr}
+      .priority-shell{grid-template-columns:1fr}
+      .priority-tabs{border-right:0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(2,1fr)}
+      .priority-tab{border-right:1px solid var(--line)}
+      .timeline{grid-template-columns:1fr}
+      .phase{border-right:0;border-bottom:1px solid var(--line)}
+      .phase:last-child{border-bottom:0}
+      .hard-question{background:var(--teal)}
+    }
+    @media (max-width:720px){
+      .wrap{width:min(var(--max), calc(100% - 26px))}
+      .section{padding:64px 0}
+      .navlinks a{display:none}
+      .nav{padding:12px 0}
+      .brand-logo{width:112px}
+      .brand-sub{display:none}
+      .signal-grid,.proof-grid,.questions-grid,.three-col{grid-template-columns:1fr}
+      .growth-model{grid-template-columns:1fr}
+      .growth-cell{border-right:0!important;border-bottom:1px solid var(--line)!important}
+      .growth-cell:last-child{border-bottom:0!important}
+      .priority-tabs{grid-template-columns:1fr}
+      .priority-panel{padding:26px 22px}
+      .move{grid-template-columns:1fr;gap:6px}
+      .cta{align-items:flex-start;flex-direction:column}
+      .cta-primary-actions,.cta-download-actions{width:100%}
+      .btn{width:100%}
+      .voss-hero{grid-template-columns:40px 1fr 28px;padding:22px 18px}
+      h1{font-size:3.4rem}
+    }
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .reveal{opacity:1;transform:none;transition:none}
+      *{animation:none!important;transition:none!important}
+    }
+    @media print{
+      header,.print-btn{display:none!important}
+      .section,.hero{padding:32px 0}
+      body::before{display:none}
+      .reveal{opacity:1!important;transform:none!important}
+      .priority-shell{box-shadow:none}
+      .priority-panel article{display:block!important;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:18px}
+      .priority-tabs{display:none}
+      a{text-decoration:none}
+      .cta{break-inside:avoid}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand-lockup" href="#top" aria-label="Back to top">
+      <img class="brand-logo" src="assets/ametek-logo-png-transparent.png" alt="AMETEK" />
+      <span class="brand-sub">P&amp;AI • CANDIDATE VISION BRIEF</span>
+    </a>
+    <nav class="navlinks" aria-label="Page sections">
+      <a href="#pressure">Pressure</a>
+      <a href="#thesis">Thesis</a>
+      <a href="#proof">Proof</a>
+      <a href="#plan">Plan</a>
+      <a href="docs/Russell_Dudek_AMETEK_PAI_Division_VP_IT_Resume.pdf" download>Resume</a>
+      <button class="print-btn" onclick="window.print()">Print brief</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="kicker">Russell Dudek • P&amp;AI Division VP IT Thesis</div>
+      <h1>Partner with the Division President.<br>Standardize what matters.<br><span class="accent">Make IT move the business.</span></h1>
+      <p class="lede">
+        My vision for P&amp;AI is not a corporate IT pitch. It is the operating brief for a Division VP of IT:
+        partner closely with the Division President and business-unit leaders, execute ERP transformation with discipline,
+        strengthen cybersecurity and resilience, and turn data, analytics, and AI into measurable growth, margin,
+        productivity, and operational visibility.
+      </p>
+      <div class="hero-meta">
+        <span class="chip">Pittsburgh manufacturing roots</span>
+        <span class="chip">20+ years industrial leadership</span>
+        <span class="chip">Amazon-scale operating discipline</span>
+        <span class="chip">AI-first operator-builder</span>
+      </div>
+      <div class="voss-hero reveal">
+        <div class="quote-mark">“</div>
+        <p>
+          It looks like this role is called IT leadership. The harder truth is that the mandate is business partnership:
+          make technology investments improve how a decentralized P&amp;AI portfolio grows, integrates, operates, and makes decisions.
+        </p>
+        <div class="quote-mark close">”</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section signals" id="pressure">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">The pressure I see</div>
+        <h2>The technology is not the hard part. The operating handoffs are.</h2>
+        <p class="lede">The JD points to four simultaneous responsibilities that have to be managed as one division operating cadence.</p>
+      </div>
+
+      <div class="signal-grid reveal">
+        <article class="signal">
+          <div class="num">01</div>
+          <h3>Federated autonomy vs. division standardization</h3>
+          <p>P&amp;AI has to preserve business-unit speed while standardizing the areas where fragmentation creates cost, risk, poor data, or slow decisions.</p>
+          <span class="empathy">“It probably feels like every standard comes with a tax on local speed.”</span>
+        </article>
+        <article class="signal">
+          <div class="num">02</div>
+          <h3>S/4HANA without operational paralysis</h3>
+          <p>The role explicitly calls for greenfield and/or migration programs, legacy rationalization, process standardization, data quality, and budget discipline.</p>
+          <span class="empathy">“Nobody wants an ERP program that is technically green and operationally red.”</span>
+        </article>
+        <article class="signal">
+          <div class="num">03</div>
+          <h3>M&amp;A integration without disruption</h3>
+          <p>The JD explicitly names IT due diligence, systems assessment, ERP and infrastructure integration, cyber risk evaluation, and operational continuity.</p>
+          <span class="empathy">“The last thing a newly acquired business needs is an integration team that destroys continuity while chasing synergy.”</span>
+        </article>
+        <article class="signal">
+          <div class="num">50+</div>
+          <h3>Data, analytics, and AI enablement</h3>
+          <p>The role has to help P&amp;AI adopt enterprise data platforms, standardize data governance, participate in KPI standardization, and improve decisions.</p>
+          <span class="empathy">“A pilot can impress a room. A scaled workflow has to survive Monday morning.”</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="thesis">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">My thesis</div>
+        <h2>Division IT should make P&amp;AI’s business priorities easier to execute.</h2>
+        <p class="lede">The role is not about owning technology for its own sake. It is a division operating partnership with measurable business outcomes.</p>
+      </div>
+
+      <div class="thesis-grid">
+        <div class="growth-model reveal">
+          <div class="growth-cell">
+            <span class="label">Growth, productivity, and portfolio optimization</span>
+            <h3>ERP + process truth</h3>
+            <p>Common definitions, disciplined process ownership, better master data, shorter close cycles, inventory visibility, and exception-driven management.</p>
+            <span class="arrow">→ Measure adoption and value capture, not just go-live.</span>
+          </div>
+          <div class="growth-cell">
+            <span class="label">Manufacturing, engineering, and supply chain</span>
+            <h3>Instrument → insight → action</h3>
+            <p>Build the digital thread from connected equipment and service data into trusted decision support, faster learning loops, and responsible AI.</p>
+            <span class="arrow">→ Make product data part of the moat.</span>
+          </div>
+          <div class="growth-cell">
+            <span class="label">Commercial effectiveness and operating speed</span>
+            <h3>Reusable platforms, local speed</h3>
+            <p>Use enterprise patterns for identity, integration, analytics, and security so business units can launch faster without rebuilding the same plumbing.</p>
+            <span class="arrow">→ Standardize the spine, not the personality.</span>
+          </div>
+          <div class="growth-cell">
+            <span class="label">Acquisition integration and continuity</span>
+            <h3>An integration factory</h3>
+            <p>A repeatable landing zone for cyber risk, identity, infrastructure, data, applications, and ERP migration sequencing—without forcing Day 1 disruption.</p>
+            <span class="arrow">→ Make the next integration faster than the last.</span>
+          </div>
+        </div>
+
+        <aside class="core-edge reveal">
+          <span class="label" style="color:#D7E6EA">Federated IT operating model</span>
+          <h3>How does a Division VP IT balance autonomy with enterprise standards?</h3>
+          <p style="color:#D7E6EA">
+            I would make the boundary explicit, measurable, and negotiated with division and business-unit leadership—not left to architecture diagrams.
+          </p>
+          <div class="architecture">
+            <div class="arch-row">
+              <strong>Enterprise core</strong>
+              <span>Identity &amp; access • cyber controls • data governance • KPI definitions • integration standards • shared services</span>
+            </div>
+            <div class="arch-row">
+              <strong>P&amp;AI division spine</strong>
+              <span>S/4HANA roadmap • process ownership • master-data accountability • finance/operations visibility • portfolio governance</span>
+            </div>
+            <div class="arch-row">
+              <strong>Business edge</strong>
+              <span>Domain applications • lab and engineering tools • product software • local commercial workflows • controlled experimentation</span>
+            </div>
+            <div class="arch-row acq">
+              <strong>Acquisition landing zone</strong>
+              <span>Day-1 risk containment → identity and asset visibility → data contracts → application rationalization → ERP/process migration</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section proof" id="proof">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">What I bring to the table</div>
+        <h2>I have lived where the system meets physical reality.</h2>
+        <p class="lede muted">
+          My advantage is not technology theater. It is knowing what happens after the steering committee approves the slide.
+        </p>
+      </div>
+
+      <div class="proof-grid reveal">
+        <article class="proof-card">
+          <div class="metric">20+ yrs</div>
+          <h3>Industrial operating depth</h3>
+          <p>Manufacturing, advanced electronics, engineering, robotics, supply chain, logistics, customer operations, quality systems, and transformation.</p>
+          <p class="proof-strip">I speak plant floor, engineering, finance, customer, and executive.</p>
+        </article>
+        <article class="proof-card">
+          <div class="metric">5M</div>
+          <h3>Orders/year at Amazon scale</h3>
+          <p>Helped launch and run Amazon Prime Pittsburgh, supporting roughly five million second-day orders annually and documented 99.98% on-time delivery.</p>
+          <p class="proof-strip">Scale taught me that standards only matter when teams can execute them under pressure.</p>
+        </article>
+        <article class="proof-card">
+          <div class="metric">1,000+</div>
+          <h3>Robots in the field</h3>
+          <p>Led operating workflows connecting production, support, engineering, ERP/Jira, telemetry, issue flow, and AI-assisted analysis around a real machine fleet.</p>
+          <p class="proof-strip">The data loop is only valuable when it changes the next decision.</p>
+        </article>
+        <article class="proof-card">
+          <div class="metric">$20M</div>
+          <h3>Advanced manufacturing division context</h3>
+          <p>Led operations and engineering management in advanced electronics environments serving demanding customers and programs, including DoD, CERN, Intel, and AMD.</p>
+          <p class="proof-strip">High-consequence work made quality, traceability, and disciplined change non-negotiable.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="priorities">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">Four priorities, one operating cadence</div>
+        <h2>What I would put on the table with the Division President and business leadership team.</h2>
+        <p class="lede">Click a priority. Each one starts with a calibrated question, not a predetermined answer.</p>
+      </div>
+
+      <div class="priority-shell reveal">
+        <div class="priority-tabs" role="tablist" aria-label="Strategic priorities">
+          <button class="priority-tab active" data-target="erp" role="tab" aria-selected="true">1. ERP value realization</button>
+          <button class="priority-tab" data-target="ma" role="tab" aria-selected="false">2. M&amp;A integration factory</button>
+          <button class="priority-tab" data-target="cyber" role="tab" aria-selected="false">3. Cyber + resilience</button>
+          <button class="priority-tab" data-target="ai" role="tab" aria-selected="false">4. Data + AI portfolio</button>
+        </div>
+
+        <div class="priority-panel">
+          <article id="erp" class="active">
+            <span class="label">ERP value realization</span>
+            <div class="big-question">“What would make an S/4 cutover feel like a business success—not merely an IT milestone?”</div>
+            <p>Build the program around process owners and measurable operating outcomes: order flow, schedule adherence, inventory accuracy, close cadence, data quality, adoption, and exception reduction.</p>
+            <div class="three-col">
+              <div class="mini"><b>Governance</b><p>Clear decision rights, design authority, risk cadence, stage gates, and escalation paths.</p></div>
+              <div class="mini"><b>Business readiness</b><p>Process truth before configuration; super-users, scenario testing, cutover rehearsal, and floor-level adoption signals.</p></div>
+              <div class="mini"><b>Value scorecard</b><p>Track realized operational and financial value after go-live, not just schedule and budget.</p></div>
+            </div>
+          </article>
+
+          <article id="ma">
+            <span class="label">M&amp;A integration factory</span>
+            <div class="big-question">“What would have to be true for the next acquisition to integrate faster—with less disruption—than the last?”</div>
+            <p>Create a repeatable playbook with a light-touch Day 1 and disciplined migration path: protect revenue and continuity first, contain risk second, then sequence applications, data, infrastructure, and ERP based on value and dependency.</p>
+            <div class="three-col">
+              <div class="mini"><b>0–30 days</b><p>Cyber exposure, identity, asset inventory, critical systems, continuity risks, vendor and license obligations.</p></div>
+              <div class="mini"><b>30–90 days</b><p>Data map, integration architecture, application disposition, KPI mapping, and ERP fit/gap.</p></div>
+              <div class="mini"><b>90–365 days</b><p>Sequenced migration waves with synergy capture, business ownership, and continuity metrics.</p></div>
+            </div>
+          </article>
+
+          <article id="cyber">
+            <span class="label">Cyber + resilience</span>
+            <div class="big-question">“How would we know—before an incident—that recovery plans and access controls work under pressure?”</div>
+            <p>Treat cyber as operational resilience: asset visibility, privileged-access discipline, vulnerability closure, tested recovery, incident roles, third-party risk, and clear business ownership of critical services.</p>
+            <div class="three-col">
+              <div class="mini"><b>See it</b><p>Know assets, identities, dependencies, data paths, and risk ownership across the portfolio.</p></div>
+              <div class="mini"><b>Exercise it</b><p>Tabletops, restore tests, failover evidence, and executive decision rehearsals.</p></div>
+              <div class="mini"><b>Measure it</b><p>Patch SLA, privileged access, recovery evidence, critical-service coverage, and closure aging.</p></div>
+            </div>
+          </article>
+
+          <article id="ai">
+            <span class="label">Data + AI portfolio</span>
+            <div class="big-question">“Which decisions become meaningfully better when the data is trusted—and which pilots should we stop funding?”</div>
+            <p>Move from idea volume to governed portfolio value. Start small, instrument the workflow, prove value, establish human accountability, and scale only where adoption and economics survive real operations.</p>
+            <div class="three-col">
+              <div class="mini"><b>Prove</b><p>Baseline the workflow, define the decision and metric, test with humans in the loop.</p></div>
+              <div class="mini"><b>Govern</b><p>Data lineage, model boundaries, security, access, evaluation, escalation, and ownership.</p></div>
+              <div class="mini"><b>Scale</b><p>Adoption, hours removed, cycle time, service speed, forecast quality, yield, and margin impact.</p></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section competition">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">The advancing competition</div>
+        <h2>The market is moving from instrument to insight.</h2>
+        <p class="lede">The competitive question is becoming: who owns the trusted data loop around the instrument—not only the instrument itself?</p>
+      </div>
+
+      <div class="market-frame reveal">
+        <div class="market-thesis">
+          <div>
+            <span class="label" style="color:#D7E6EA">My competitive thesis</span>
+            <p class="formula">Instrument <span>→</span> trusted data <span>→</span> decision <span>→</span> action <span>→</span> service learning</p>
+          </div>
+          <p style="color:#D7E6EA;margin-bottom:0">
+            P&amp;AI’s moat is domain expertise plus installed equipment plus customer trust. Division IT can turn that into a faster learning system without forcing every business into the same product model.
+          </p>
+        </div>
+        <div class="moves">
+          <div class="move">
+            <b>Spectris</b>
+            <p>Publicly described software as approaching 20% of revenue, a path toward 25%, and AI-enabled real-time actionable insight at the point of measure.</p>
+          </div>
+          <div class="move">
+            <b>Emerson</b>
+            <p>Markets an AI-powered, integrated hardware-and-software test platform—evidence that customers increasingly expect intelligence around measurement.</p>
+          </div>
+          <div class="move">
+            <b>PAC / Indicor</b>
+            <p>Describes advanced analytical instruments alongside a digital platform for real-time analytics—showing how digital layers are becoming part of the product value proposition.</p>
+          </div>
+          <div class="move">
+            <b>AMETEK</b>
+            <p>Already has the portfolio, niche leadership, operating model, and AI experimentation base. The opportunity is disciplined scaling, interoperability, and faster value capture.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="plan">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">First 180 days</div>
+        <h2>Listen deeply. Make the system visible. Then move.</h2>
+        <p class="lede">Progress over theater—without confusing urgency with recklessness.</p>
+      </div>
+
+      <div class="timeline reveal">
+        <article class="phase">
+          <div class="days">Days 0–30</div>
+          <h3>Listen + map</h3>
+          <p>Build credibility with business presidents, plant leaders, finance, corporate IT, and the IT organization before changing the operating model.</p>
+          <ul>
+            <li>Value-stream and pain-point listening tour</li>
+            <li>ERP portfolio / readiness / dependency heat map</li>
+            <li>Cyber and resilience risk narrative in business language</li>
+            <li>Data ownership and KPI-conflict map</li>
+            <li>Top 10 “friction taxes” ranked by value</li>
+          </ul>
+        </article>
+        <article class="phase">
+          <div class="days">Days 31–90</div>
+          <h3>Align + govern</h3>
+          <p>Turn findings into one transparent portfolio with decision rights, owners, value measures, and an agreed core-vs-edge boundary.</p>
+          <ul>
+            <li>Division IT strategy and value scorecard</li>
+            <li>S/4 governance, process-owner, and cutover-readiness model</li>
+            <li>Acquisition integration landing-zone playbook</li>
+            <li>Cyber resilience drill cadence</li>
+            <li>AI portfolio stage gates and kill criteria</li>
+          </ul>
+        </article>
+        <article class="phase">
+          <div class="days">Days 91–180</div>
+          <h3>Prove + scale</h3>
+          <p>Deliver visible wins while strengthening the transformation engine needed for the harder multi-year work.</p>
+          <ul>
+            <li>One ERP process-value lighthouse</li>
+            <li>One cross-business data visibility lighthouse</li>
+            <li>One AI workflow with verified adoption and economics</li>
+            <li>One tested recovery / incident exercise</li>
+            <li>Executive portfolio review: stop, scale, or sequence</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hard-question">
+    <div class="wrap hq-grid">
+      <div class="hq-quote reveal">
+        “You may be thinking: strong operator—but can he lead division IT in a federated model?”
+      </div>
+      <div class="hq-response reveal">
+        <p><strong>That is a fair question.</strong> I am not a career technologist who sees the business as a downstream customer of IT.</p>
+        <p>I am an operator-builder who has spent a career where technology either lands—or stalls: engineering, factory, supply chain, quality, customer support, data, automation, and leadership cadence.</p>
+        <p>I will not pretend an S/4HANA transformation is a software install, or that the Division VP IT should out-SAP the architects. My job would be to make sure architecture, process ownership, data readiness, testing, cutover, adoption, and value capture all become one accountable operating system.</p>
+        <p class="close">The question is not whether the ERP goes live. The question is whether the business gets better because it did.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="questions">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">The conversation I want to have</div>
+        <h2>Four questions I would bring into the interview.</h2>
+      </div>
+      <div class="questions-grid reveal">
+        <div class="question-card"><p>Where does local autonomy create genuine competitive edge—and where are we simply paying a recurring tax for variance?</p></div>
+        <div class="question-card"><p>What would have to be true for business-unit leaders to pull the ERP transformation instead of feeling it is being pushed at them?</p></div>
+        <div class="question-card"><p>Which acquisition-integration decisions are being reinvented every time that should become a repeatable capability?</p></div>
+        <div class="question-card"><p>Six months from now, what would make you say: “Division IT is helping P&amp;AI run the portfolio differently”?</p></div>
+      </div>
+
+      <div class="cta reveal">
+        <div>
+          <h3>Russell Dudek</h3>
+          <p>AI-first operations and transformation leader • Pittsburgh, Pennsylvania</p>
+        </div>
+        <div class="cta-actions">
+          <div class="cta-primary-actions">
+            <a class="btn primary" href="mailto:russelldudek@gmail.com?subject=AMETEK%20P%26AI%20IT%20Leadership%20Conversation&body=Russell%2C%0D%0A%0D%0AI%20reviewed%20your%20AMETEK%20P%26AI%20IT%20leadership%20brief%20and%20would%20like%20to%20connect.%0D%0A%0D%0A">Start a conversation</a>
+            <a class="btn secondary" href="https://www.linkedin.com/in/russelldudek" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+          <div class="cta-download-actions">
+            <a class="btn download" href="docs/Russell_Dudek_AMETEK_PAI_Division_VP_IT_Resume.pdf" download>Download resume</a>
+            <a class="btn download" href="docs/Russell_Dudek_AMETEK_PAI_Division_VP_IT_Cover_Letter.pdf" download>Download cover letter</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <details>
+      <summary>Research basis for this public-source interview thesis</summary>
+      <div class="sources">
+        <ol>
+          <li><a href="https://jobs.ametek.com/job/Pittsburgh-Division-Vice-President%2C-Information-Technology%2C-P%26AI-Division-PA-15238/1400225400/" target="_blank" rel="noopener">AMETEK job posting — Division Vice President, Information Technology, P&amp;AI Division</a></li>
+          <li><a href="https://investors.ametek.com/static-files/fe426613-2b5c-4e07-84cd-2c1d96069b14" target="_blank" rel="noopener">AMETEK 2025 Annual Report</a></li>
+          <li><a href="https://www.ametek.com/newsroom/news/investor/2026/may/ametek-announces-agreement-to-acquire-indicor-instrumentation" target="_blank" rel="noopener">AMETEK announcement — agreement to acquire Indicor Instrumentation</a></li>
+          <li><a href="https://investors.ametek.com/static-files/ac5652be-e9e5-460d-b2a6-7c0e6009c461" target="_blank" rel="noopener">AMETEK investor presentation — strategic acquisition of Indicor Instrumentation</a></li>
+          <li><a href="https://www.spectris.com/assets/Spectris-2024-Full-Year-Results-28.02.2025-transcript.pdf" target="_blank" rel="noopener">Spectris full-year results transcript — software and AI strategy signal</a></li>
+          <li><a href="https://www.emerson.com/en/corporate" target="_blank" rel="noopener">Emerson corporate portfolio — AI-powered integrated test platform positioning</a></li>
+          <li><a href="https://www.indicor.com/pac" target="_blank" rel="noopener">PAC / Indicor — analytical instruments and real-time analytics platform description</a></li>
+        </ol>
+        <p class="disclaimer">
+          Candidate vision brief prepared from public information and Russell Dudek’s documented professional experience. It is a strategic hypothesis for interview discussion, not a claim of access to AMETEK internal systems, roadmaps, or non-public information. Planned GitHub Pages URL: <a href="https://russelldudek.github.io/AMETEK/" target="_blank" rel="noopener">https://russelldudek.github.io/AMETEK/</a>. AMETEK and related marks belong to their respective owners.
+        </p>
+      </div>
+    </details>
+  </div>
+</footer>
+
+<script>
+  // Priority tabs
+  const tabs = document.querySelectorAll('.priority-tab');
+  const articles = document.querySelectorAll('.priority-panel article');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      articles.forEach(a => a.classList.remove('active'));
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      const panel = document.getElementById(tab.dataset.target);
+      if (panel) panel.classList.add('active');
+    });
+  });
+
+  // Gentle reveal-on-scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
